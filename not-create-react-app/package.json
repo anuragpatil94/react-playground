@@ -27,5 +27,11 @@
   },
   "bin": {
     "react-boilerplate": "./bin/start.js"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
   }
 }
