@@ -1,26 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-interface ITableSettingsProps {
-  applySettings: () => void;
+export interface ITableSettings {
+  rows: number;
+  columns: number;
 }
 
-export default function TableSettings({ applySettings }: ITableSettingsProps) {
-  function fnCreateTable() {}
+interface ICustomize {
+  fnApplySettings: (settings: ITableSettings) => void;
+}
+
+export default function Customize({ fnApplySettings }: ICustomize) {
+  const [settings, setSettings] = useState(
+    (): ITableSettings => ({ rows: 0, columns: 0 })
+  );
+
+  function fnOnChangeInputText(event: React.ChangeEvent<HTMLInputElement>) {
+    setSettings((previousSettings) => ({
+      ...previousSettings,
+      [event.target.name]: event.target.valueAsNumber || 0,
+    }));
+  }
+
+  function fnOnClickApply() {
+    fnApplySettings(settings);
+  }
+
   return (
     <div className="flex flex-col gap-2 p-2">
-      <button className="p-1 bg-green-600 rounded-md" onClick={fnCreateTable}>
-        Create Table
-      </button>
       <div className="flex gap-2 ">
         <label htmlFor="rows">Rows</label>
-        <input type="text" id="rows" className="flex-grow rounded-sm" />
+        <input
+          type="number"
+          id="rows"
+          name="rows"
+          className="flex-grow px-2 py-1 rounded-sm"
+          onChange={fnOnChangeInputText}
+        />
       </div>
       <div className="flex gap-2 ">
         <label htmlFor="cols">Columns</label>
-        <input type="text" id="cols" className="flex-grow rounded-sm" />
+        <input
+          type="number"
+          id="cols"
+          name="columns"
+          className="flex-grow px-2 py-1 rounded-sm"
+          onChange={fnOnChangeInputText}
+        />
       </div>
 
-      <button className="p-1 bg-green-600 rounded-md" onClick={applySettings}>
+      <button className="p-1 bg-green-600 rounded-md" onClick={fnOnClickApply}>
         Apply
       </button>
     </div>

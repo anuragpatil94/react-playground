@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import { Table, TableSettings } from '.';
-import { ITableSettings } from './Table';
+import { Table, Customize } from '.';
+import { ITableSettings } from './Table/settings';
 
 function Home() {
-  const [settings, setSettings] = useState({});
+  const [settings, setSettings] = useState(
+    (): ITableSettings => ({
+      rows: 0,
+      columns: 0,
+    })
+  );
   const fnApplySettings = (settings: ITableSettings) => {
-    console.log(settings);
-
     setSettings(settings);
   };
 
@@ -25,7 +28,7 @@ function Home() {
         <div className="flex flex-col justify-center w-1/3 p-2 align-middle rounded-md bg-zinc-200">
           <div className="h-8 text-center align-middle">Settings</div>
           <div className="flex-1 flex-grow border border-gray-700 rounded-md">
-            <TableSettings applySettings={fnApplySettings} />
+            <Customize fnApplySettings={fnApplySettings} />
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
 import Table from './Table';
-import TableSettings from './Table/settings';
+import Customize from './Table/settings';
 
-export { Table, TableSettings };
+export { Table, Customize };
