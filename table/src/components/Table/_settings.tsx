@@ -1,18 +1,8 @@
 import React, { useState } from 'react';
-
-export interface ITableSettings {
-  rows: number;
-  columns: number;
-}
-
-interface ICustomize {
-  fnApplySettings: (settings: ITableSettings) => void;
-}
+import { ICustomize, DefTableSettingsObj } from './_extras';
 
 export default function Customize({ fnApplySettings }: ICustomize) {
-  const [settings, setSettings] = useState(
-    (): ITableSettings => ({ rows: 0, columns: 0 })
-  );
+  const [settings, setSettings] = useState(DefTableSettingsObj);
 
   function fnOnChangeInputText(event: React.ChangeEvent<HTMLInputElement>) {
     setSettings((previousSettings) => ({

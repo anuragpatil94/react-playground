@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { Table, Customize } from '.';
-import { ITableSettings } from './Table/settings';
+import {
+  Customize,
+  ITableSettings,
+  Table,
+  TableSettingsDefaultObject,
+} from './Table';
 
 function Home() {
-  const [settings, setSettings] = useState(
-    (): ITableSettings => ({
-      rows: 0,
-      columns: 0,
-    })
-  );
+  const [settings, setSettings] = useState(TableSettingsDefaultObject);
   const fnApplySettings = (settings: ITableSettings) => {
     setSettings(settings);
   };
