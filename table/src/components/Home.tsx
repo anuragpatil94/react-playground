@@ -17,10 +17,10 @@ function Home() {
       <div className="flex justify-center leading-8 align-middle bg-orange-400 rounded-md">
         Table
       </div>
-      <div className="flex items-stretch flex-1 gap-2">
-        <div className="flex flex-col justify-center flex-grow p-2 align-middle bg-gray-200 rounded-md">
+      <div className="flex items-stretch flex-1 gap-2 ">
+        <div className="flex flex-col justify-center w-2/3 p-2 align-middle bg-gray-200 rounded-md">
           <div className="h-8 text-center align-middle">Playground</div>
-          <div className="flex-1 flex-grow border border-gray-700 rounded-md">
+          <div className="flex items-start justify-start flex-1 p-4 overflow-x-auto border border-gray-700 rounded-md">
             <Table settings={settings} />
           </div>
         </div>

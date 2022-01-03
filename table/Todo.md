@@ -1,7 +1,9 @@
 # Todo
 
 - [X] Create Table using dynamic rows and column
-- [ ] Add Headers to Table
+- [X] Add Headers to Table
+- [ ] Column Sortable
+- [ ] Column Word Wrap
 - [ ] Change span for rows and column
 - [ ] Frozen row
 - [ ] Frozen Column

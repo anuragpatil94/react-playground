@@ -11,6 +11,13 @@ export default function Customize({ fnApplySettings }: ICustomize) {
     }));
   }
 
+  function fnOnChangeInputCheckbox(event: React.ChangeEvent<HTMLInputElement>) {
+    setSettings((previousSettings) => ({
+      ...previousSettings,
+      [event.target.name]: event.target.checked,
+    }));
+  }
+
   function fnOnClickApply() {
     fnApplySettings(settings);
   }
@@ -35,6 +42,17 @@ export default function Customize({ fnApplySettings }: ICustomize) {
           name="columns"
           className="flex-grow px-2 py-1 rounded-sm"
           onChange={fnOnChangeInputText}
+        />
+      </div>
+      <div className="flex items-center justify-between gap-2">
+        <label htmlFor="cols">Headers?</label>
+        <input
+          type="checkbox"
+          id="headers"
+          name="headers"
+          className="px-2 py-1 rounded-sm"
+          checked={settings.headers}
+          onChange={fnOnChangeInputCheckbox}
         />
       </div>
 
