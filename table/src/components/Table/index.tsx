@@ -1,4 +1,4 @@
-import Table from './Table';
+import Table from './_Table';
 import Customize from './_settings';
 import {
   ICustomize,
