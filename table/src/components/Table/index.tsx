@@ -3,9 +3,20 @@ import Customize from './_settings';
 import {
   ICustomize,
   ITable,
+  ITableConfigs,
   ITableSettings,
   DefTableSettingsObj,
+  DefTableHeaderObj,
+  DefTableDataObj,
+  DefTableConfigObj,
 } from './_extras';
 
-export { Table, Customize, DefTableSettingsObj as TableSettingsDefaultObject };
-export type { ICustomize, ITable, ITableSettings };
+export {
+  Table,
+  Customize,
+  DefTableSettingsObj,
+  DefTableHeaderObj,
+  DefTableDataObj,
+  DefTableConfigObj,
+};
+export type { ICustomize, ITable, ITableSettings, ITableConfigs };

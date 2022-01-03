@@ -1,12 +1,14 @@
 interface ITable {
   settings: ITableSettings;
+  data?: ITableData;
+  configs?: ITableConfigs[];
 }
 
 interface ITableSettings {
   rows: number;
   columns: number;
   headers?: boolean;
-  data?: ITableData;
+  wordwrap?: boolean;
 }
 
 interface ITableData {
@@ -14,9 +16,14 @@ interface ITableData {
   rows?: ITableDataRow[];
 }
 
+interface ITableConfigs {
+  orderNumber: number;
+  wordwrap?: boolean;
+}
+
 interface ITableDataHeader {
   orderNumber: number;
-  title: string;
+  title?: string;
 }
 
 interface ITableDataRow {}
@@ -25,12 +32,26 @@ interface ICustomize {
   fnApplySettings: (settings: ITableSettings) => void;
 }
 
-export type { ITable, ITableSettings, ICustomize };
+export type { ITable, ITableConfigs, ITableSettings, ICustomize };
+
+export const DefTableDataObj: ITableData = {
+  headers: [],
+  rows: [],
+};
 
 // Default Table Settings
 export const DefTableSettingsObj: ITableSettings = {
   rows: 0,
   columns: 0,
   headers: true,
-  data: {},
+  wordwrap: false,
+};
+
+export const DefTableConfigObj: ITableConfigs = {
+  orderNumber: -1,
+  wordwrap: true,
+};
+
+export const DefTableHeaderObj: ITableDataHeader = {
+  orderNumber: -1,
 };
